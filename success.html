@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    });
+
+    function toggleTheme() {
+      const htmlElement = document.documentElement;
+      if (htmlElement.classList.contains("dark")) {
+        htmlElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      } else {
+        htmlElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      }
+    }
+  </script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 transition duration-300">
+  
+ 
+  <button onclick="toggleTheme()" class="absolute top-4 right-4 px-4 py-2 bg-blue-500 dark:bg-yellow-400 text-white dark:text-gray-900 rounded shadow-md">
+    Toggle Theme 🌗
+  </button>
+
+  <h2 id="thankYouMessage" class="text-xl font-semibold bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 p-6 shadow-lg rounded opacity-0 transform translate-y-5 transition duration-500">
+    Thanks for filling the form!.
+  </h2>
+  
+  <script>
+    setTimeout(() => {
+      document.getElementById('thankYouMessage').classList.add('opacity-100', 'translate-y-0');
+    }, 500);
+  </script>
+
+</body>
+</html>
+
